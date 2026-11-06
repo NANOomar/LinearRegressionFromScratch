@@ -91,11 +91,15 @@ public class Main {
             }
             System.out.println();
         }
+        for (Double y : Y){
+            System.out.print(y + "    ");
+        }
+        System.out.println();
 
 
         System.out.println("Number of houses: " + X.size());
         System.out.println("Number of targets: " + Y.size());
-        System.out.println("Features per house: " + X.get(0)[0]);
+        //System.out.println("Features per house: " + X.get(0)[0]);
 
 
 
