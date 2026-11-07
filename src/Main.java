@@ -27,7 +27,7 @@ public class Main {
 
 
         String filePath = "/home/nano/Desktop/Programing/java/linearRegressionFromScratch/LinearRegressionFromScratch/data/boston.csv";
-        final String lineDelimiter = "\"";
+
         final String valueDelimiter = "\\s+";
         ArrayList<Double[]> X = new ArrayList<>();
         ArrayList<Double> Y = new ArrayList<>();
@@ -62,7 +62,7 @@ public class Main {
 
             }
         } catch (FileNotFoundException e) {
-            System.out.println("File not found!");;
+            System.out.println("File not found!");
         } catch (IOException e) {
             System.out.println("Something went Wrong!");
         }
@@ -99,8 +99,15 @@ public class Main {
 
         System.out.println("Number of houses: " + X.size());
         System.out.println("Number of targets: " + Y.size());
-        //System.out.println("Features per house: " + X.get(0)[0]);
+        System.out.println("Features per house: " + X.getFirst().length);
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //statistics
+        Statistics statistics = new Statistics();
+
+        ArrayList<Double> counts = statistics.count(X);
+        System.out.println();
+        statistics.mean( X);
 
 
 
