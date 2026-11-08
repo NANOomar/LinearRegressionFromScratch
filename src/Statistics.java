@@ -12,9 +12,9 @@ public class Statistics {
 
         for(int i = 0 ; i < X.getFirst().length ; i++){
             for(int j = 0 ; j < X.size(); j++){
-                if(X.get(j)[i] != 0){
+                //if(X.get(j)[i] != 0)
                     counter++;
-                }
+
             }
             counts.add(counter);
             counter = 0;
@@ -160,7 +160,7 @@ public class Statistics {
     }
     public ArrayList<Double> threeQuartersPercent(ArrayList<Double[]> X){
         ArrayList<Double> threeQuartersPercents = new ArrayList<>();
-        double p = 0.5;
+        double p = 0.75;
 
 
         for(int i = 0 ; i < X.getFirst().length ; i++){
