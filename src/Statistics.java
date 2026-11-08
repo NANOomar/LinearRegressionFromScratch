@@ -138,7 +138,6 @@ public class Statistics {
         for(Double element : quartersPercents){
             System.out.print(element + " | ");
         }
-
         return quartersPercents;
     }
 
