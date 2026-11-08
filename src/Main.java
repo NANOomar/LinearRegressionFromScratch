@@ -114,6 +114,15 @@ public class Main {
         statistics.min(X);
         System.out.println();
         statistics.max(X);
+        System.out.println();
+        statistics.quarterPercent(X);
+        System.out.println();
+        statistics.halfPercent(X);
+        System.out.println();
+        statistics.threeQuartersPercent(X);
+
+
+
 
 
 

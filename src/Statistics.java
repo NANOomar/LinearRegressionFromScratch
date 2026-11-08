@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Statistics {
 
@@ -122,28 +123,73 @@ public class Statistics {
         return maxElements;
     }
 
-    public double quarterPercent(ArrayList<Double[]> X){
+    public ArrayList<Double> quarterPercent(ArrayList<Double[]> X){
 
         ArrayList<Double> quartersPercents = new ArrayList<>();
+        double p = 0.25;
+
 
         for(int i = 0 ; i < X.getFirst().length ; i++){
-
-            for(int j = 0 ; j < X.size(); j++){
-
-            }
-
+            quartersPercents.add(row(X, i).get((int)(p * (row(X , i).size()))));
 
         }
 
-        return 0.0;
+        System.out.print("25% || ");
+        for(Double element : quartersPercents){
+            System.out.print(element + " | ");
+        }
+
+        return quartersPercents;
     }
 
-    public double halfPercent(){
-        return 0.0;
+    public ArrayList<Double> halfPercent(ArrayList<Double[]> X){
+        ArrayList<Double> halfPercents = new ArrayList<>();
+        double p = 0.5;
+
+
+        for(int i = 0 ; i < X.getFirst().length ; i++){
+            halfPercents.add(row(X, i).get((int)(p * (row(X , i).size()))));
+
+        }
+
+        System.out.print("50% || ");
+        for(Double element : halfPercents){
+            System.out.print(element + " | ");
+        }
+
+        return halfPercents;
     }
-    public double threeQuartersPercent(){
-        return 0.0;
+    public ArrayList<Double> threeQuartersPercent(ArrayList<Double[]> X){
+        ArrayList<Double> threeQuartersPercents = new ArrayList<>();
+        double p = 0.5;
+
+
+        for(int i = 0 ; i < X.getFirst().length ; i++){
+            threeQuartersPercents.add(row(X, i).get((int)(p * (row(X , i).size()))));
+
+        }
+
+        System.out.print("75% || ");
+        for(Double element : threeQuartersPercents){
+            System.out.print(element + " | ");
+        }
+
+        return threeQuartersPercents;
     }
 
+    private ArrayList<Double> row(ArrayList<Double[]> X , int index){
+
+        ArrayList<Double> row = new ArrayList<>();
+
+
+            for(int j = 0 ; j < X.size() ; j++){
+                row.add(X.get(j)[index]);
+            }
+
+        Collections.sort(row);
+
+        return row;
+
+    }
 
 }
