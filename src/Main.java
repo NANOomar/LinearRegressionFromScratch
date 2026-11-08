@@ -107,7 +107,13 @@ public class Main {
 
         ArrayList<Double> counts = statistics.count(X);
         System.out.println();
-        statistics.mean( X);
+        ArrayList<Double> stds = statistics.mean( X);
+        System.out.println();
+        statistics.std(X , stds);
+        System.out.println();
+        statistics.min(X);
+        System.out.println();
+        statistics.max(X);
 
 
 

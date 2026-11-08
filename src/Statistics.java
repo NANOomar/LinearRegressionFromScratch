@@ -1,3 +1,5 @@
+import java.awt.image.AreaAveragingScaleFilter;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Statistics {
@@ -49,15 +51,91 @@ public class Statistics {
         return means;
     }
 
-    public double std() {
-        return 0.0;
+    public ArrayList<Double> std(ArrayList<Double[]> X , ArrayList<Double> means) {
+
+        int n = X.size();
+
+        ArrayList<Double> stds = new ArrayList<>();
+
+        for(int i = 0 ; i < X.getFirst().length ; i++){
+            double std = 0;
+            double result = 0;
+            for(int j = 0 ; j < X.size() ; j++){
+                std += Math.pow(X.get(j)[i] - means.get(i) , 2);
+                result = Math.sqrt(std / (n - 1));
+            }
+            stds.add(result);
+
+        }
+
+        System.out.print("std || ");
+        for(Double element : stds){
+            System.out.print(element + " | ");
+        }
+        return stds;
     }
 
-    public double min(){
-        return 0.0;
+    public ArrayList<Double> min(ArrayList<Double[]> X){
+        double minElement = 0;
+        ArrayList<Double> minElements = new ArrayList<>();
+        for(int i = 0 ; i < X.getFirst().length ; i++){
+             minElement = X.get(i)[0];
+            for(int j = 0 ; j < X.size() ; j++){
+                if(minElement > X.get(j)[i]){
+                    minElement = X.get(j)[i];
+                }
+            }
+            minElements.add(minElement);
+
+
+        }
+        System.out.print("min || ");
+        for(Double element : minElements){
+            System.out.print(element + " | ");
+        }
+
+
+
+        return minElements;
     }
 
-    public double quarterPercent(){
+    public ArrayList<Double> max(ArrayList<Double[]> X){
+        double maxElement = 0;
+        ArrayList<Double> maxElements = new ArrayList<>();
+        for(int i = 0 ; i < X.getFirst().length ; i++){
+            maxElement = X.get(i)[0];
+            for(int j = 0 ; j < X.size() ; j++){
+                if(maxElement < X.get(j)[i]){
+                    maxElement = X.get(j)[i];
+                }
+            }
+            maxElements.add(maxElement);
+
+
+        }
+        System.out.print("max || ");
+        for(Double element : maxElements){
+            System.out.print(element + " | ");
+        }
+
+
+
+        return maxElements;
+    }
+
+    public double quarterPercent(ArrayList<Double[]> X){
+
+        ArrayList<Double> quartersPercents = new ArrayList<>();
+
+        for(int i = 0 ; i < X.getFirst().length ; i++){
+
+            for(int j = 0 ; j < X.size(); j++){
+
+            }
+
+
+        }
+
         return 0.0;
     }
 
