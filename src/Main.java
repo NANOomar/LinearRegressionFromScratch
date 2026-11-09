@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -123,8 +124,11 @@ public class Main {
         statistics.threeQuartersPercent(X, Y);
         System.out.println();
         correlation.calculateCorrelation(X, Y);
+        System.out.println();
+        correlation.featuresSelection(X, Y);
 
-
+        System.out.println();
+        correlation.splitData(X, Y);
 
 
 
