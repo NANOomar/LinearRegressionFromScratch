@@ -15,7 +15,9 @@ public class Statistics {
             for(int j = 0 ; j < X.size(); j++){
                 //if(X.get(j)[i] != 0)
                 if(i == (X.getFirst().length - 1)){
-                    counterY++;
+                    for(int k = 0 ; k < Y.size() ; k++){
+                        counterY++;
+                    }
                 }
                     counter++;
 
@@ -58,11 +60,11 @@ public class Statistics {
             sum = 0;
         }
 
-        System.out.print("mean || ");
-        for(Double k : means){
-
-            System.out.print(k + " | ");
-        }
+//        System.out.print("mean || ");
+//        for(Double k : means){
+//
+//            System.out.print(k + " | ");
+//        }
 
         return means;
     }
@@ -105,7 +107,7 @@ public class Statistics {
     }
 
     public ArrayList<Double> min(ArrayList<Double[]> X, ArrayList<Double> Y){
-        double minElement = X.get(0)[0];
+        double minElement = X.getFirst()[0];
         double minElementY = Y.getFirst();
 
 
@@ -181,7 +183,7 @@ public class Statistics {
 
 
         for(int i = 0 ; i < X.getFirst().length ; i++){
-            quartersPercents.add(row(X, i).get((int)(p * (row(X , i).size()))));
+            quartersPercents.add(row(X, i, true).get((int)(p * (row(X , i, true).size()))));
             if(i == (X.getFirst().length - 1)){
                 Collections.sort(Y);
                 quartersPercents.add(Y.get((int)(p * Y.size())));
@@ -202,7 +204,7 @@ public class Statistics {
 
 
         for(int i = 0 ; i < X.getFirst().length ; i++){
-            halfPercents.add(row(X, i).get((int)(p * (row(X , i).size()))));
+            halfPercents.add(row(X, i, true).get((int)(p * (row(X , i, true).size()))));
             if(i == (X.getFirst().length - 1)){
                 Collections.sort(Y);
                 halfPercents.add(Y.get((int)(p * Y.size())));
@@ -216,13 +218,14 @@ public class Statistics {
 
         return halfPercents;
     }
-    public ArrayList<Double> threeQuartersPercent(ArrayList<Double[]> X, ArrayList<Double> Y){
+
+    public ArrayList<Double> threeQuartersPercent(ArrayList<Double[]> X, ArrayList<Double> Y ){
         ArrayList<Double> threeQuartersPercents = new ArrayList<>();
         double p = 0.75;
 
 
         for(int i = 0 ; i < X.getFirst().length ; i++){
-            threeQuartersPercents.add(row(X, i).get((int)(p * (row(X , i).size()))));
+            threeQuartersPercents.add(row(X, i, true).get((int)(p * (row(X , i, true).size()))));
             if(i == (X.getFirst().length - 1)){
                 Collections.sort(Y);
                 threeQuartersPercents.add(Y.get((int)(p * Y.size())));
@@ -237,7 +240,7 @@ public class Statistics {
         return threeQuartersPercents;
     }
 
-    private ArrayList<Double> row(ArrayList<Double[]> X , int index){
+    public ArrayList<Double> row(ArrayList<Double[]> X , int index, boolean sortedArray){
 
         ArrayList<Double> row = new ArrayList<>();
 
@@ -246,7 +249,11 @@ public class Statistics {
                 row.add(X.get(j)[index]);
             }
 
-        Collections.sort(row);
+            if(sortedArray == true){
+                Collections.sort(row);
+            }
+
+
 
         return row;
 
