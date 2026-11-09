@@ -185,8 +185,9 @@ public class Statistics {
         for(int i = 0 ; i < X.getFirst().length ; i++){
             quartersPercents.add(row(X, i, true).get((int)(p * (row(X , i, true).size()))));
             if(i == (X.getFirst().length - 1)){
-                Collections.sort(Y);
-                quartersPercents.add(Y.get((int)(p * Y.size())));
+                ArrayList<Double> sortedArrayY = new ArrayList<>(Y);
+                Collections.sort(sortedArrayY);
+                quartersPercents.add(sortedArrayY.get((int)(p * sortedArrayY.size())));
             }
 
         }
@@ -206,8 +207,10 @@ public class Statistics {
         for(int i = 0 ; i < X.getFirst().length ; i++){
             halfPercents.add(row(X, i, true).get((int)(p * (row(X , i, true).size()))));
             if(i == (X.getFirst().length - 1)){
-                Collections.sort(Y);
-                halfPercents.add(Y.get((int)(p * Y.size())));
+                ArrayList<Double> sortedArrayY = new ArrayList<>(Y);
+
+                Collections.sort(sortedArrayY);
+                halfPercents.add(sortedArrayY.get((int)(p * sortedArrayY.size())));
             }
         }
 
@@ -227,8 +230,10 @@ public class Statistics {
         for(int i = 0 ; i < X.getFirst().length ; i++){
             threeQuartersPercents.add(row(X, i, true).get((int)(p * (row(X , i, true).size()))));
             if(i == (X.getFirst().length - 1)){
-                Collections.sort(Y);
-                threeQuartersPercents.add(Y.get((int)(p * Y.size())));
+                ArrayList<Double> sortedArrayY = new ArrayList<>(Y);
+
+                Collections.sort(sortedArrayY);
+                threeQuartersPercents.add(sortedArrayY.get((int)(p * sortedArrayY.size())));
             }
         }
 
@@ -249,8 +254,10 @@ public class Statistics {
                 row.add(X.get(j)[index]);
             }
 
-            if(sortedArray == true){
-                Collections.sort(row);
+            if(sortedArray){
+                ArrayList<Double> sortedRow = new ArrayList<>(row);
+                Collections.sort(sortedRow);
+                return sortedRow;
             }
 
 

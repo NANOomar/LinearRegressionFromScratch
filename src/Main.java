@@ -109,7 +109,18 @@ public class Main {
         ArrayList<Double> counts = statistics.count(X, Y);
         System.out.println();
         ArrayList<Double> stds = statistics.mean( X, Y);
-
+        System.out.println();
+        statistics.std(X , stds, Y);
+        System.out.println();
+        statistics.min(X , Y);
+        System.out.println();
+        statistics.max(X , Y);
+        System.out.println();
+        statistics.quarterPercent(X, Y);
+        System.out.println();
+        statistics.halfPercent(X, Y);
+        System.out.println();
+        statistics.threeQuartersPercent(X, Y);
         System.out.println();
         correlation.calculateCorrelation(X, Y);
 
