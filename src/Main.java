@@ -105,21 +105,21 @@ public class Main {
         //statistics
         Statistics statistics = new Statistics();
 
-        ArrayList<Double> counts = statistics.count(X);
+        ArrayList<Double> counts = statistics.count(X, Y);
         System.out.println();
-        ArrayList<Double> stds = statistics.mean( X);
+        ArrayList<Double> stds = statistics.mean( X, Y);
         System.out.println();
-        statistics.std(X , stds);
+        statistics.std(X , stds, Y);
         System.out.println();
-        statistics.min(X);
+        statistics.min(X , Y);
         System.out.println();
-        statistics.max(X);
+        statistics.max(X , Y);
         System.out.println();
-        statistics.quarterPercent(X);
+        statistics.quarterPercent(X, Y);
         System.out.println();
-        statistics.halfPercent(X);
+        statistics.halfPercent(X, Y);
         System.out.println();
-        statistics.threeQuartersPercent(X);
+        statistics.threeQuartersPercent(X, Y);
 
 
 
