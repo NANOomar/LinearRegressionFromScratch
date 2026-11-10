@@ -44,7 +44,7 @@ public class Correlation {
             correlations.add(sumxxyy / (Math.sqrt(sumxx * sumyy)));
 
         }
-
+//
 //        System.out.print("correlations || ");
 //        for(Double element : correlations){
 //            System.out.print(element + " | ");
@@ -55,13 +55,11 @@ public class Correlation {
         return correlations;
     }
 
-
-
     public ArrayList<Integer> featuresSelection(ArrayList<Double[]> X , ArrayList<Double> Y){
 
 
         ArrayList<Integer> indexFeatures = new ArrayList<>();
-        double rate = 0.7;
+        double rate = 0.5;
         int index = 0;
 
         for(Double element : calculateCorrelation(X , Y)){
@@ -80,14 +78,18 @@ public class Correlation {
         }
 
         Collections.sort(correlationsAbsSorted);
-        System.out.print("correlationsAbsSorted || ");
-        for(Double element : correlationsAbsSorted){
-            System.out.print(element + " | ");
-        }
+//        System.out.print("correlationsAbsSorted || ");
+//        for(Double element : correlationsAbsSorted){
+//            System.out.print(element + " | ");
+//        }
+//        System.out.println();
+//        System.out.print("indexFFF | ");
+//        for(int element : indexFeatures){
+//            System.out.print(element + " | ");
+//        }
 
         return indexFeatures;
     }
-
 
     public void splitData(ArrayList<Double[]> X , ArrayList<Double> Y) {
 
@@ -166,47 +168,62 @@ public class Correlation {
 
 
 
-
-        System.out.println("size x:" + x_train.size());
-
-        System.out.print("x_train || ");
-        int z = 0;
-        for(ArrayList<Double> x : x_train){
-            for(Double element : x){
-                System.out.print(element + " | ");
-                z++;
-            }
-
-            System.out.println();
-        }
-
-        System.out.println(z);
-        System.out.println();
-
-        System.out.print("y_train || ");
-        for(Double element : y_train){
-            System.out.print(element + " | ");
-        }
-
-        System.out.println();
-
-        System.out.print("x_test || ");
-        for(ArrayList<Double> x : x_test){
-            for(Double element : x){
-                System.out.print(element + " | ");
-            }
-
-        }
-
-        System.out.println();
-
-        System.out.print("y_test || ");
-        for(Double element : y_test){
-            System.out.print(element + " | ");
-        }
+//
+//        System.out.println("size x:" + x_train.size());
+//
+//        System.out.print("x_train || ");
+//        int z = 0;
+//        for(ArrayList<Double> x : x_train){
+//            for(Double element : x){
+//                System.out.print(element + " | ");
+//                z++;
+//            }
+//
+//            System.out.println();
+//        }
+//
+//        System.out.println(z);
+//        System.out.println();
+//
+//        System.out.print("y_train || ");
+//        for(Double element : y_train){
+//            System.out.print(element + " | ");
+//        }
+//
+//        System.out.println();
+//
+//        System.out.print("x_test || ");
+//        for(ArrayList<Double> x : x_test){
+//            for(Double element : x){
+//                System.out.print(element + " | ");
+//            }
+//
+//        }
+//
+//        System.out.println();
+//
+//        System.out.print("y_test || ");
+//        for(Double element : y_test){
+//            System.out.print(element + " | ");
+//        }
 
 
 
     }
 
+    public ArrayList<ArrayList<Double>> getX_train() {
+        return x_train;
+    }
+
+    public ArrayList<Double> getY_test() {
+        return y_test;
+    }
+
+    public ArrayList<ArrayList<Double>> getX_test() {
+        return x_test;
+    }
+
+    public ArrayList<Double> getY_train() {
+        return y_train;
+    }
 }

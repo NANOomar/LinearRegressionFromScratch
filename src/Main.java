@@ -135,6 +135,11 @@ public class Main {
         System.out.println();
 
 
+        FeatureScaling featureScaling = new FeatureScaling();
+        //featureScaling.meanX(correlation.getX_train());
+        //featureScaling.stdX(correlation.getX_train());
+        featureScaling.standardization(correlation.getX_train());
+        featureScaling.standardization(correlation.getX_test() , correlation.getX_test());
 
 
 
