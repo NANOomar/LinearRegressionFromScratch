@@ -139,7 +139,18 @@ public class Main {
         //featureScaling.meanX(correlation.getX_train());
         //featureScaling.stdX(correlation.getX_train());
         featureScaling.standardization(correlation.getX_train());
-        featureScaling.standardization(correlation.getX_test() , correlation.getX_test());
+        featureScaling.standardization(correlation.getX_test() , correlation.getX_train());
+
+        LinearRegression linearRegression = new LinearRegression();
+//        linearRegression.hypothesis();
+//        System.out.println();
+//        linearRegression.calculateGradient();
+//        System.out.println(linearRegression.costFunction());
+//        linearRegression.updateTheta();
+
+        linearRegression.gradientDescent();
+        linearRegression.predict();
+
 
 
 

@@ -9,11 +9,11 @@ import java.util.Random;
 
 public class Correlation {
 
-    private ArrayList<Double> correlationsAbsSorted = new ArrayList<>();
-    private ArrayList<ArrayList<Double>> x_train = new ArrayList<>();
-    private ArrayList<Double> y_train = new ArrayList<>();
-    private ArrayList<ArrayList<Double>> x_test = new ArrayList<>();
-    private ArrayList<Double> y_test = new ArrayList<>();
+    static private ArrayList<Double> correlationsAbsSorted = new ArrayList<>();
+    static private ArrayList<ArrayList<Double>> x_train = new ArrayList<>();
+    static private ArrayList<Double> y_train = new ArrayList<>();
+    static private ArrayList<ArrayList<Double>> x_test = new ArrayList<>();
+    static private ArrayList<Double> y_test = new ArrayList<>();
 
     public ArrayList<Double> calculateCorrelation(ArrayList<Double[]> X , ArrayList<Double> Y){
 
@@ -59,7 +59,7 @@ public class Correlation {
 
 
         ArrayList<Integer> indexFeatures = new ArrayList<>();
-        double rate = 0.5;
+        double rate = 0.0;
         int index = 0;
 
         for(Double element : calculateCorrelation(X , Y)){
@@ -137,6 +137,8 @@ public class Correlation {
                 y_test.add(Y_shuffled.get(i));
             }
         }
+
+
 
 
 

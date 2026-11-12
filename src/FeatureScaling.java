@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class FeatureScaling {
+public class FeatureScaling extends Correlation{
 
     private static boolean runOnceMean = false;
     private static boolean runOnceStd = false;
@@ -24,11 +24,11 @@ public class FeatureScaling {
             meanValues.add(sum / numHouses);
         }
 
-        System.out.println();
-        System.out.print("mean || ");
-        for(Double element : meanValues){
-            System.out.print(element + " | ");
-        }
+//        System.out.println();
+//        System.out.print("mean || ");
+//        for(Double element : meanValues){
+//            System.out.print(element + " | ");
+//        }
 
         runOnceMean = true;
 
@@ -50,11 +50,11 @@ public class FeatureScaling {
             stdValues.add(result);
         }
 
-        System.out.println();
-        System.out.print("std || ");
-        for(Double element : stdValues){
-            System.out.print(element + " | ");
-        }
+//        System.out.println();
+//        System.out.print("std || ");
+//        for(Double element : stdValues){
+//            System.out.print(element + " | ");
+//        }
 
         runOnceStd = true;
     }
@@ -87,58 +87,51 @@ public class FeatureScaling {
         }
 
 
-        System.out.println("//////////////////////////////////////////////////////////////////////////////");
-        System.out.print("standardized || ");
-        for(ArrayList<Double> elements : trainStandarazedValues){
-            for(Double element : elements){
-                System.out.print(element + " | ");
-            }
-            System.out.println();
-        }
+//        System.out.println("//////////////////////////////////////////////////////////////////////////////");
+//        System.out.print("standardized || ");
+//        for(ArrayList<Double> elements : trainStandarazedValues){
+//            for(Double element : elements){
+//                System.out.print(element + " | ");
+//            }
+//            System.out.println();
+//        }
 
 
 
     }
-    public void standardization(ArrayList<ArrayList<Double>> X_test , ArrayList<ArrayList<Double>> X_Train){
+    public void standardization(ArrayList<ArrayList<Double>> X_test, ArrayList<ArrayList<Double>> X_Train) {
 
+        meanX(X_Train);
+        stdX(X_Train);
 
-
-
-            meanX(X_Train);
-            stdX(X_Train);
-
-        if(runOnceTT == false){
+        if (runOnceTT == false) {
             int nubHouses = X_test.size();
             int numFeatures = X_test.getFirst().size();
 
-            for(int i = 0 ; i < nubHouses ; i++){
+            for (int i = 0; i < nubHouses; i++) {
                 ArrayList<Double> row = new ArrayList<>();
-
-                for(int j = 0 ; j < numFeatures ; j++){
-                    double result = (X_test.get(i).get(j) - meanValues.get(j)) / stdValues.get(j);
-                    row.add(result);
+                for (int j = 0; j < numFeatures; j++) {
+                    row.add((X_test.get(i).get(j) - meanValues.get(j)) / stdValues.get(j));
                 }
                 testStandarazedValues.add(row);
             }
 
-            runOnceTT = true;
+            runOnceTT = true;   // correct flag
         }
+    }   // <- only ONE closing brace for the method
 
+    public ArrayList<ArrayList<Double>> getTrainStandardizedValues() {
+        return trainStandarazedValues;
+    }
 
+    public static ArrayList<ArrayList<Double>> getTestStandarazedValues() {
+        return testStandarazedValues;
+    }
 
-
-
-
-        System.out.println("//////////////////////////////////////////////////////////////////////////////");
-        System.out.print("standardized || ");
-        for(ArrayList<Double> elements : testStandarazedValues){
-            for(Double element : elements){
-                System.out.print(element + " | ");
-            }
-            System.out.println();
+    public void soutMean(){
+        System.out.println(" jjjjjjjjjjj mena ljjjjjjjjjjjjj");
+        for(Double element : meanValues){
+            System.out.println(element + " | ");
         }
-
-
-
     }
 }
